@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista árbol para alertas -->
+        <record id="view_kpi_alert_tree" model="ir.ui.view">
+            <field name="name">kpi.alert.tree</field>
+            <field name="model">kpi.alert</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="alert_type"/>
+                    <field name="severity"/>
+                    <field name="project_id"/>
+                    <field name="is_resolved"/>
+                    <field name="date_triggered"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista formulario para alertas -->
+        <record id="view_kpi_alert_form" model="ir.ui.view">
+            <field name="name">kpi.alert.form</field>
+            <field name="model">kpi.alert</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_resolve_alert" string="Marcar como Resuelta" type="object" class="btn-success"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="alert_type"/>
+                                <field name="severity"/>
+                            </group>
+                            <group>
+                                <field name="is_resolved"/>
+                                <field name="date_triggered"/>
+                                <field name="date_resolved"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="task_id"/>
+                        </group>
+                        <field name="message"/>
+                        <field name="resolution_notes"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_kpi_alert" model="ir.actions.act_window">
+            <field name="name">Alertas KPI</field>
+            <field name="res_model">kpi.alert</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_kpi_alerts" name="Alertas" parent="menu_kpi_main" action="action_kpi_alert" sequence="30"/>
+    </data>
+</odoo>

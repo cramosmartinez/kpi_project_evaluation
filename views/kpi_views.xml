@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista árbol para proyectos -->
+        <record id="view_kpi_project_tree" model="ir.ui.view">
+            <field name="name">kpi.project.tree</field>
+            <field name="model">kpi.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="state" widget="statusbar"/>
+                    <field name="completion_percentage" widget="progressbar"/>
+                    <field name="priority"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista formulario para proyectos -->
+        <record id="view_kpi_project_form" model="ir.ui.view">
+            <field name="name">kpi.project.form</field>
+            <field name="model">kpi.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_start_project" string="Iniciar" type="object" class="btn-primary"/>
+                        <button name="action_complete_project" string="Completar" type="object" class="btn-success"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="partner_id"/>
+                                <field name="manager_id"/>
+                            </group>
+                            <group>
+                                <field name="state"/>
+                                <field name="priority"/>
+                                <field name="health_status"/>
+                                <field name="completion_percentage" widget="progressbar"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="actual_end_date"/>
+                            </group>
+                            <group>
+                                <field name="budget"/>
+                                <field name="actual_cost"/>
+                            </group>
+                        </group>
+                        <field name="description"/>
+                        <field name="team_member_ids" widget="many2many_tags"/>
+                        <field name="task_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="assigned_to"/>
+                                <field name="state"/>
+                                <field name="priority"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="progress" widget="progressbar"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista árbol para tareas -->
+        <record id="view_kpi_task_tree" model="ir.ui.view">
+            <field name="name">kpi.task.tree</field>
+            <field name="model">kpi.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="assigned_to"/>
+                    <field name="state"/>
+                    <field name="priority"/>
+                    <field name="progress" widget="progressbar"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones -->
+        <record id="action_kpi_project" model="ir.actions.act_window">
+            <field name="name">Proyectos KPI</field>
+            <field name="res_model">kpi.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_kpi_project_tree"/>
+        </record>
+
+        <record id="action_kpi_task" model="ir.actions.act_window">
+            <field name="name">Tareas KPI</field>
+            <field name="res_model">kpi.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menús -->
+        <menuitem id="menu_kpi_main" name="KPI Manager Pro" sequence="10"/>
+        <menuitem id="menu_kpi_projects" name="Proyectos" parent="menu_kpi_main" action="action_kpi_project" sequence="10"/>
+        <menuitem id="menu_kpi_tasks" name="Tareas" parent="menu_kpi_main" action="action_kpi_task" sequence="20"/>
+    </data>
+</odoo>
