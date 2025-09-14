@@ -15,9 +15,9 @@ Características Premium:
 • Multi-empresa y multi-idioma
 • Soporte para dispositivos móviles
 """,
-    'author': 'Business Intelligence Solutions',
-    'website': 'https://www.bisolutions.com',
-    'support': 'soporte@bisolutions.com',
+    'author': 'Carlos Javier Ramos Martinez',
+    'website': 'https://github.com/cramosmartinez',
+    'support': 'cramosmartinez5@gmail.com',
     'depends': ['base', 'web', 'mail'],  # ← REMOVED 'project'
     'data': [
         'security/security.xml',
@@ -39,6 +39,6 @@ Características Premium:
     'application': True,
     'auto_install': False,
     'license': 'OPL-1',
-    'price': 499.00,
+    'price': 16.00,
     'currency': 'USD',
 }
