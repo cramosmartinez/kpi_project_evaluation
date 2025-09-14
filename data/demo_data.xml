@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Proyectos de demostración -->
+        <record id="demo_project_erp" model="kpi.project">
+            <field name="name">Implementación Sistema ERP Empresarial</field>
+            <field name="code">ERP-2024-001</field>
+            <field name="description">Implementación completa del sistema ERP para optimizar todos los procesos empresariales de la organización</field>
+            <field name="state">in_progress</field>
+            <field name="priority">high</field>
+            <field name="budget">50000.00</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2024-06-30</field>
+        </record>
+
+        <record id="demo_project_cloud" model="kpi.project">
+            <field name="name">Migración a Infraestructura Cloud AWS</field>
+            <field name="code">CLOUD-2024-002</field>
+            <field name="description">Migración completa de servidores on-premise hacia Amazon Web Services para mejorar escalabilidad y reducción de costos</field>
+            <field name="state">in_progress</field>
+            <field name="priority">critical</field>
+            <field name="budget">75000.00</field>
+            <field name="start_date">2024-02-01</field>
+            <field name="end_date">2024-08-15</field>
+        </record>
+
+        <!-- Tareas de demostración -->
+        <record id="demo_task_analysis" model="kpi.task">
+            <field name="name">Análisis de Requerimientos del Negocio</field>
+            <field name="project_id" ref="demo_project_erp"/>
+            <field name="assigned_to">Ana López</field>
+            <field name="state">completed</field>
+            <field name="priority">high</field>
+            <field name="risk">medium</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2024-01-30</field>
+            <field name="progress">100</field>
+            <field name="cost">2500.00</field>
+        </record>
+
+        <record id="demo_task_development" model="kpi.task">
+            <field name="name">Desarrollo de Módulos Personalizados</field>
+            <field name="project_id" ref="demo_project_erp"/>
+            <field name="assigned_to">Carlos Rodríguez</field>
+            <field name="state">in_progress</field>
+            <field name="priority">high</field>
+            <field name="risk">high</field>
+            <field name="start_date">2024-02-01</field>
+            <field name="end_date">2024-04-15</field>
+            <field name="progress">65</field>
+            <field name="cost">15000.00</field>
+        </record>
+
+        <!-- Dashboard principal -->
+        <record id="main_kpi_dashboard" model="kpi.dashboard">
+            <field name="name">Dashboard Principal KPI</field>
+        </record>
+    </data>
+</odoo>

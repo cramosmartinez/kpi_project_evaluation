@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Reporte básico para proyectos KPI -->
+        <report
+            id="action_kpi_project_report"
+            name="kpi_project_evaluation.report_kpi_project"
+            model="kpi.project"
+            report_type="qweb-pdf"
+            string="Reporte de Proyecto KPI"
+            file="kpi_project_evaluation.report_kpi_project"
+        />
+    </data>
+</odoo>
